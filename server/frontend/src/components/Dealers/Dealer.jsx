@@ -40,6 +40,8 @@ const Dealer = () => {
     const res = await fetch(reviews_url, {
       method: "GET"
     });
+
+    console.log(res)
     const retobj = await res.json();
     
     if(retobj.status === 200) {
