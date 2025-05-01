@@ -14,6 +14,7 @@ from .restapis import get_request, analyze_review_sentiments
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
+
 # Create your views here.
 def get_cars(request):
     count = CarMake.objects.filter().count()
@@ -28,6 +29,7 @@ def get_cars(request):
             "CarMake": car_model.car_make.name
         })
     return JsonResponse({"CarModels": cars})
+
 
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
@@ -51,6 +53,7 @@ def logout_request(request):
     logout(request)
     data = {"userName": ""}
     return JsonResponse(data)
+
 
 # Create a `registration` view to handle sign up request
 @csrf_exempt
@@ -129,7 +132,7 @@ def add_review(request):
 
     # data = json.loads(request.body)
     try:
-        #response = post_review(data)
+        # response = post_review(data)
         return JsonResponse({"status": 200})
     except Exception as e:
         logger.error("Error posting review: %s", str(e))
