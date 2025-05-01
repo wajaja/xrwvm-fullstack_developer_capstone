@@ -14,18 +14,15 @@ sentiment_analyzer_url = os.getenv(
 def get_request(endpoint, **kwargs):
     """
     Make a GET request to the specified backend endpoint.
-    
     Args:
         endpoint (str): The API endpoint to call
         **kwargs: Query parameters to include in the request
-        
     Returns:
         dict: JSON response from the server or None if request fails
     """
     params = "&".join([f"{k}={v}" for k, v in kwargs.items()])
     request_url = f"{backend_url}{endpoint}?{params}"
     print(f"GET from {request_url}")
-
     try:
         response = requests.get(request_url)
         response.raise_for_status()
@@ -38,10 +35,8 @@ def get_request(endpoint, **kwargs):
 def analyze_review_sentiments(text):
     """
     Analyze the sentiment of the given text using the sentiment analyzer service.
-    
     Args:
         text (str): The review text to analyze
-        
     Returns:
         dict: Sentiment analysis results or error message
     """
@@ -59,10 +54,8 @@ def analyze_review_sentiments(text):
 def post_review(data_dict):
     """
     Post a review to the backend service.
-    
     Args:
         data_dict (dict): Review data to post
-        
     Returns:
         dict: Response from server or error message
     """
