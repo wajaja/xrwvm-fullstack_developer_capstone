@@ -129,8 +129,6 @@ def add_review(request):
             "status": 403,
             "message": "Unauthorized"
         })
-
-   
     try:
         # response = post_review(data)
         return JsonResponse({"status": 200})
