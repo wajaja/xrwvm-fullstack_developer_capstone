@@ -130,7 +130,7 @@ def add_review(request):
             "message": "Unauthorized"
         })
 
-    # data = json.loads(request.body)
+   
     try:
         # response = post_review(data)
         return JsonResponse({"status": 200})
