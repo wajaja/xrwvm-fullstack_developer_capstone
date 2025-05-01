@@ -5,6 +5,10 @@ from . import views
 
 app_name = 'djangoapp'
 
+D_R_PATH = 'reviews/dealer/<int:dealer_id>/'
+D_ID_PATH = 'dealer/<int:dealer_id>/'
+D_ST_PATH = 'dealers/<str:state>/'
+
 urlpatterns = [
     # Authentication URLs
     path('registration/', views.registration, name='registration'),
@@ -14,10 +18,10 @@ urlpatterns = [
     path('get_cars/', views.get_cars, name='getcars'),
     # Dealer URLs
     path('dealers/', views.get_dealerships, name='get_dealers'),
-    path('dealers/<str:state>/', views.get_dealerships, name='gt_d_by_sta'),
-    path('dealer/<int:dealer_id>/', views.get_dealer_details, name='dealer_d'),
+    path(D_ST_PATH, views.get_dealerships, name='get_dealers_by_state'),
+    path(D_ID_PATH, views.get_dealer_details, name='dealer_details'),
     # Review URLs
-    path('reviews/dealer/<int:dealer_id>/', views.get_d_r, name='dealer_r'),
+    path(D_R_PATH, views.get_dealer_reviews, name='dealer_r'),
     path('add_review/', views.add_review, name='add_review'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

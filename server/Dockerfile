@@ -18,8 +18,8 @@
 
     EXPOSE 8000
 
-    RUN chmod +x /app/entrypoint.sh
+    RUN chmod +x ./entrypoint.sh
 
-    ENTRYPOINT ["/bin/bash","/app/entrypoint.sh"]
+    ENTRYPOINT ["/bin/bash","./entrypoint.sh"]
 
     CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "djangoproj.wsgi"]
