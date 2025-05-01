@@ -8,6 +8,8 @@ from django.views.generic import TemplateView as T
 from django.conf.urls.static import static
 from django.conf import settings
 
+REVIEW_PATH = 'postreview/<int:id>/'
+
 urlpatterns = [
     # Admin site
     path('admin/', admin.site.urls),
@@ -27,5 +29,5 @@ urlpatterns = [
 
     # Dynamic frontend routes
     path('dealer/<int:id>/', T.as_view(template_name="index.html"), name='d'),
-    path('postreview/<int:id>/', T.as_view(template_name="index.html"), name='p'),
+    path(REVIEW_PATH, T.as_view(template_name="index.html"), name='p'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
