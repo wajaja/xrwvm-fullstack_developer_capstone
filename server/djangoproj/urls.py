@@ -26,6 +26,6 @@ urlpatterns = [
     path('dealers/', T.as_view(template_name="index.html"), name='dealers'),
 
     # Dynamic frontend routes
-    path('dealer/<int:id>/', T.as_view(template_name="index.html"), name='dealer_d'),
-    path('postreview/<int:id>/', T.as_view(template_name="index.html"), name='post_r'),
+    path('dealer/<int:id>/', T.as_view(template_name="index.html"), name='d'),
+    path('postreview/<int:id>/', T.as_view(template_name="index.html"), name='p'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
