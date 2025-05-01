@@ -15,7 +15,6 @@ from .restapis import get_request, analyze_review_sentiments
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
-
 # Create your views here.
 def get_cars(request):
     count = CarMake.objects.filter().count()
@@ -30,7 +29,6 @@ def get_cars(request):
             "CarMake": car_model.car_make.name
         })
     return JsonResponse({"CarModels": cars})
-
 
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
@@ -55,7 +53,6 @@ def logout_request(request):
     data = {"userName": ""}
     return JsonResponse(data)
 
-
 # Create a `registration` view to handle sign up request
 @csrf_exempt
 def registration(request):
@@ -66,7 +63,6 @@ def registration(request):
     last_name = data['lastName']
     email = data['email']
     username_exist = False
-
     try:
         # Check if user already exists
         User.objects.get(username=username)
@@ -74,7 +70,6 @@ def registration(request):
     except User.DoesNotExist:
         # If not, simply log this is a new user
         logger.debug("%s is new user", username)
-
     # If it is a new user
     if not username_exist:
         # Create user in auth_user table
