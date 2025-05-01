@@ -34,14 +34,13 @@ def get_request(endpoint, **kwargs):
 
 def analyze_review_sentiments(text):
     """
-    Analyze the sentiment of the given text using the sentiment analyzer service.
+    Analyze the sentiment of the given text .
     Args:
         text (str): The review text to analyze
     Returns:
         dict: Sentiment analysis results or error message
     """
     request_url = f"{sentiment_analyzer_url}analyze/{text}"
-    
     try:
         response = requests.get(request_url)
         response.raise_for_status()
@@ -60,7 +59,6 @@ def post_review(data_dict):
         dict: Response from server or error message
     """
     request_url = f"{backend_url}/insert_review"
-    
     try:
         response = requests.post(
             request_url,
