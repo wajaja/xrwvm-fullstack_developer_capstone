@@ -11,7 +11,6 @@ from .populate import initiate
 from .models import CarMake, CarModel
 from .restapis import get_request, analyze_review_sentiments
 
-
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
@@ -128,7 +127,7 @@ def add_review(request):
             "message": "Unauthorized"
         })
 
-    data = json.loads(request.body)
+    # data = json.loads(request.body)
     try:
         #response = post_review(data)
         return JsonResponse({"status": 200})
