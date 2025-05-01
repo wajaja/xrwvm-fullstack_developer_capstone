@@ -4,7 +4,7 @@ djangoproj URL Configuration
 
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView as T
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -16,12 +16,8 @@ urlpatterns = [
     path('api/', include('djangoapp.urls')),
 
     # Static pages
-    path('',
-    TemplateView.as_view(template_name="Home.html"),
-    name='home'),
-    path('about/',
-    TemplateView.as_view(template_name="About.html"),
-    name='about'),
+    path('', T.as_view(template_name="Home.html"), name='home'),
+    path('about/',T.as_view(template_name="About.html"), name='about'),
     path('contact/',
         TemplateView.as_view(template_name="Contact.html"),
         name='contact'),
