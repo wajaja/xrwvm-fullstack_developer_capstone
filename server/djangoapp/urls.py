@@ -13,17 +13,11 @@ urlpatterns = [
     # Car-related URLs
     path('get_cars/', views.get_cars, name='getcars'),
     # Dealer URLs
-    path('dealers/', views.get_dealerships, 
-    name='get_dealers'),
-    path('dealers/<str:state>/', views.get_dealerships, 
-    name='get_dealers_by_state'),
-    path('dealer/<int:dealer_id>/', views.get_dealer_details, 
-    name='dealer_details'),
+    path('dealers/', views.get_dealerships, name='get_dealers'),
+    path('dealers/<str:state>/', views.get_dealerships, name='gt_d_by_sta'),
+    path('dealer/<int:dealer_id>/', views.get_dealer_details, name='dealer_d'),
     # Review URLs
-    path('reviews/dealer/<int:dealer_id>/', 
-    views.get_dealer_reviews, 
-    name='dealer_reviews'),
-    path('add_review/', views.add_review, 
-    name='add_review'),
+    path('reviews/dealer/<int:dealer_id>/', views.get_d_r, name='dealer_r'),
+    path('add_review/', views.add_review, name='add_review'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
